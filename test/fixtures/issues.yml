@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  priority: MyString
+  status: MyString
+  votes: 1
+  user_id: 1
+  created: 2017-10-30 20:43:20
+  updated: 2017-10-30 20:43:20
+  description: MyString
+
+two:
+  title: MyString
+  type: 
+  priority: MyString
+  status: MyString
+  votes: 1
+  user_id: 1
+  created: 2017-10-30 20:43:20
+  updated: 2017-10-30 20:43:20
+  description: MyString

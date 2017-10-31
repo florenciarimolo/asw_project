@@ -1,47 +1,75 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<h1>Issues</h1>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Kind</th>
-      <th>Priority</th>
-      <th>Status</th>
-      <th>Votes</th>
-      <th>Assignee</th>
-      <th>Created</th>
-      <th>Updated</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Issue Tracker</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href=<%=new_issue_path%>>New Issue</a></li>
+      </ul>
+    </div>
+  </nav>
+  <p id="notice"><%= notice %></p>
+  <div class="container">
+  <h1>Issues</h1>
 
-  <tbody>
-    <% @issues.each do |issue| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= issue.title %></td>
-        <td><%= issue.kind %></td>
-        <td><%= issue.priority %></td>
-        <td><%= issue.status %></td>
-        <td><%= issue.votes %></td>
-        <% if (issue.assignee != nil) %>
-          <td><%= link_to issue.assignee, @users.where(username: issue.assignee).first%></td>
-        <% else %>  
-          <td><%= issue.assignee %></td>
-        <% end %>
-        <td><%= issue.created %></td>
-        <td><%= issue.updated %></td>
-        <td><%= issue.description %></td>
-        <td><%= link_to 'Show', issue %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Kind</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Votes</th>
+        <th>Assignee</th>
+        <th>Created</th>
+        <th>Updated</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Issue', new_issue_path %>
+    <tbody>
+      <% @issues.each do |issue| %>
+        <tr>
+          <td>
+            <a href=<%=issue.id%>><div class="hover-item">
+              #<%= issue.id %>: <%= issue.title %>
+             </div>
+            </a>
+          </td>
+          <td><%= issue.kind %></td>
+          <td><%= issue.priority %></td>
+          <td><%= issue.status %></td>
+          <td><%= issue.votes %></td>
+          <% if (issue.assignee != nil) %>
+            <td class="link_to">
+              <%= link_to issue.assignee, @users.where(username: issue.assignee).first%>
+            </td>
+          
+          <% else %>  
+            <td><%= issue.assignee %></td>
+          <% end %>
+          <td><%= issue.created %></td>
+          <td><%= issue.updated %></td>
+          <!--<td><%= link_to 'Edit', edit_issue_path(issue) %></td> -->
+          <!--<td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</body>

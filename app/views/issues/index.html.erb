@@ -56,9 +56,8 @@
           <td><%= issue.status %></td>
           <td><%= issue.votes %></td>
           <% if (issue.assignee != nil) %>
-            <td class="link_to">
-              <%= link_to issue.assignee, @users.where(username: issue.assignee).first%>
-            </td>
+            <td><a href= /users/<%=@users.where(username: issue.assignee).first.id%>><div class="hover-item">
+            <%=issue.assignee%></div></a></td>
           
           <% else %>  
             <td><%= issue.assignee %></td>

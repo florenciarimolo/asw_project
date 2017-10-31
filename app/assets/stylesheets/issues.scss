@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+margin: 0;
+height: 100%;
+}
 
 .hover-item {
 color: blue;
@@ -23,7 +27,7 @@ color: blue;
 text-decoration: underline;
 }
 
-.link_to {
-color: blue;
+td.link_to {
+    color: blue;
 }
 

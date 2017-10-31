@@ -2,22 +2,22 @@
 
 one:
   title: MyString
-  type: 
+  kind: MyString
   priority: MyString
   status: MyString
   votes: 1
   assignee: MyString
-  created: 2017-10-30 21:47:08
-  updated: 2017-10-30 21:47:08
+  created: 2017-10-30 23:04:33
+  updated: 2017-10-30 23:04:33
   description: MyString
 
 two:
   title: MyString
-  type: 
+  kind: MyString
   priority: MyString
   status: MyString
   votes: 1
   assignee: MyString
-  created: 2017-10-30 21:47:08
-  updated: 2017-10-30 21:47:08
+  created: 2017-10-30 23:04:33
+  updated: 2017-10-30 23:04:33
   description: MyString

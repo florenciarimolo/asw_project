@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030205802) do
+ActiveRecord::Schema.define(version: 20171030220433) do
 
   create_table "issues", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "kind"
     t.string "priority"
     t.string "status"
     t.integer "votes"

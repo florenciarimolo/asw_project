@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Type</th>
+      <th>Kind</th>
       <th>Priority</th>
       <th>Status</th>
       <th>Votes</th>
@@ -22,11 +22,15 @@
     <% @issues.each do |issue| %>
       <tr>
         <td><%= issue.title %></td>
-        <td><%= issue.type %></td>
+        <td><%= issue.kind %></td>
         <td><%= issue.priority %></td>
         <td><%= issue.status %></td>
         <td><%= issue.votes %></td>
-        <td><%= issue.assignee %></td>
+        <% if (issue.assignee != nil) %>
+          <td><%= link_to issue.assignee, @users.where(username: issue.assignee).first%></td>
+        <% else %>  
+          <td><%= issue.assignee %></td>
+        <% end %>
         <td><%= issue.created %></td>
         <td><%= issue.updated %></td>
         <td><%= issue.description %></td>

@@ -5,6 +5,7 @@ class IssuesController < ApplicationController
   # GET /issues.json
   def index
     @issues = Issue.all
+    @users = User.all
   end
 
   # GET /issues/1
@@ -69,6 +70,6 @@ class IssuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-      params.require(:issue).permit(:title, :type, :priority, :status, :votes, :assignee, :created, :updated, :description)
+      params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description)
     end
 end

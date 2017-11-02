@@ -17,15 +17,30 @@
   </div>
 
   <div class="field">
-    <%= form.label :kind %>
-    <%= form.text_field :kind, id: :issue_kind %>
+    <%= form.label :kind, id: :issue_kind %>
+    <select name="kind" >
+        <option selected disabled>Choose an option</option> 
+        <option value="1">bug</option> 
+        <option value="2">enhancement</option> 
+        <option value="3">proposal</option>
+        <option value="4">task</option> 
+    </select>
+    <!--<%= form.text_field :kind, id: :issue_kind %> -->
   </div>
-
+  
   <div class="field">
-    <%= form.label :priority %>
-    <%= form.text_field :priority, id: :issue_priority %>
-  </div>
-
+    <%= form.label :priority, id: :issue_priority %>
+    <select name="priority">
+        <option selected disabled>Choose an option</option> 
+        <option value="1">trivial</option> 
+        <option value="2">minor</option> 
+        <option value="3">major</option>
+        <option value="4">critical</option>
+        <option value="5">blocker</option> 
+    </select>
+    <!--<%= form.text_field :priority, id: :issue_priority %> -->
+  </div>  
+  
   <div class="field">
     <%= form.label :status %>
     <%= form.text_field :status, id: :issue_status %>
@@ -51,12 +66,12 @@
     <%= form.datetime_select :updated, id: :issue_updated %>
   </div>
 
-  <div class="field">
+  <div class="text_area">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :issue_description %>
+    <%= form.text_area :description, id: :issue_description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions" onCLick="guardarElementosSeleccionados()">
+    <h4><%= form.submit %></h4>
   </div>
 <% end %>

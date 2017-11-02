@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
+    @users=User.all
   end
 
   # GET /issues/new

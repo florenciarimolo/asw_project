@@ -1,49 +1,71 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+<title>Edit</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<p>
-  <strong>Title:</strong>
-  <%= @issue.title %>
-</p>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @issue.kind %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @issue.priority %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @issue.status %>
-</p>
-
-<p>
-  <strong>Votes:</strong>
-  <%= @issue.votes %>
-</p>
-
-<p>
-  <strong>Assignee:</strong>
-  <%= @issue.assignee %>
-</p>
-
-<p>
-  <strong>Created:</strong>
-  <%= @issue.created %>
-</p>
-
-<p>
-  <strong>Updated:</strong>
-  <%= @issue.updated %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @issue.description %>
-</p>
-
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h4 class="navbar-text"><strong>Issue Tracker</strong></h4>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href=<%=issues_path%>>Home</a></li>
+        <li><a href=<%=new_issue_path%>>New Issue</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    
+    <h1>Issue #<%= @issue.id %>: <%= @issue.title %></h1>
+    
+    <p>
+      <strong>Title:</strong> <%= @issue.title %>
+    </p>
+    
+    <p>
+      <strong>Kind:</strong> <%= @issue.kind %>
+    </p>
+    
+    <p>
+      <strong>Priority:</strong> <%= @issue.priority %>
+    </p>
+    
+    <p>
+      <strong>Status:</strong> <%= @issue.status %>
+    </p>
+    
+    <p>
+      <strong>Votes:</strong>
+      <%= @issue.votes %>
+    </p>
+    
+    <p>
+      <strong>Assignee:</strong> <%= @issue.assignee %>
+    </p>
+    
+    <p>
+      <strong>Created:</strong> <%= @issue.created %>
+    </p>
+    
+    <p>
+      <strong>Updated:</strong> <%= @issue.updated %>
+    </p>
+    
+    <p>
+      <strong>Description:</strong> <%= @issue.description %>
+    </p>
+    
+    <%= link_to 'Edit', edit_issue_path(@issue) %> |
+    <%= link_to 'Back', issues_path %>
+  </div>
+</body>

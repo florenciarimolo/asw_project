@@ -17,31 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :kind, id: :issue_kind %>
-    <select name="kind" >
-        <option selected disabled>Choose an option</option> 
-        <option value="1">bug</option> 
-        <option value="2">enhancement</option> 
-        <option value="3">proposal</option>
-        <option value="4">task</option> 
-    </select>
-    <!--<%= form.text_field :kind, id: :issue_kind %> -->
+    <%= form.label :kind %>
+    <%= form.select :kind, [['bug','bug'],['enhancement','enhancement'],['proposal','proposal'],['task','task']] %>
+    <% form.submit %>
   </div>
   
   <div class="field">
-    <%= form.label :priority, id: :issue_priority %>
-    <select name="priority">
-        <option selected disabled>Choose an option</option> 
-        <option value="1">trivial</option> 
-        <option value="2">minor</option> 
-        <option value="3">major</option>
-        <option value="4">critical</option>
-        <option value="5">blocker</option> 
-    </select>
-    <!--<%= form.text_field :priority, id: :issue_priority %> -->
+    <%= form.label :priority %>
+    <%= form.select :priority, [['trivial','trivial'],['minor','minor'],['major','major'],['critical','critical'],['blocker','blocker']] %>
+    <% form.submit %>
   </div>  
   
-  <div class="field">
+ <!-- <div class="field">
     <%= form.label :status %>
     <%= form.text_field :status, id: :issue_status %>
   </div>
@@ -50,13 +37,13 @@
     <%= form.label :votes %>
     <%= form.number_field :votes, id: :issue_votes %>
   </div>
-
+ -->
   <div class="field">
     <%= form.label :assignee %>
     <%= form.text_field :assignee, id: :issue_assignee %>
   </div>
 
-  <div class="field">
+ <!-- <div class="field">
     <%= form.label :created %>
     <%= form.datetime_select :created, id: :issue_created %>
   </div>
@@ -65,13 +52,14 @@
     <%= form.label :updated %>
     <%= form.datetime_select :updated, id: :issue_updated %>
   </div>
-
+ -->
+ 
   <div class="text_area">
     <%= form.label :description %>
     <%= form.text_area :description, id: :issue_description %>
   </div>
 
-  <div class="actions" onCLick="guardarElementosSeleccionados()">
+  <div class="actions">
     <h4><%= form.submit %></h4>
   </div>
 <% end %>

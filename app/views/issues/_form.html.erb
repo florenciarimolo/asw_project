@@ -18,15 +18,17 @@
 
   <div class="field">
     <%= form.label :kind %>
-    <%= form.text_field :kind, id: :issue_kind %>
+    <%= form.select :kind, [['bug','bug'],['enhancement','enhancement'],['proposal','proposal'],['task','task']] %>
+    <% form.submit %>
   </div>
-
+  
   <div class="field">
     <%= form.label :priority %>
-    <%= form.text_field :priority, id: :issue_priority %>
-  </div>
-
-  <div class="field">
+    <%= form.select :priority, [['trivial','trivial'],['minor','minor'],['major','major'],['critical','critical'],['blocker','blocker']] %>
+    <% form.submit %>
+  </div>  
+  
+ <!-- <div class="field">
     <%= form.label :status %>
     <%= form.text_field :status, id: :issue_status %>
   </div>
@@ -35,13 +37,13 @@
     <%= form.label :votes %>
     <%= form.number_field :votes, id: :issue_votes %>
   </div>
-
+ -->
   <div class="field">
     <%= form.label :assignee %>
     <%= form.text_field :assignee, id: :issue_assignee %>
   </div>
 
-  <div class="field">
+ <!-- <div class="field">
     <%= form.label :created %>
     <%= form.datetime_select :created, id: :issue_created %>
   </div>
@@ -50,13 +52,14 @@
     <%= form.label :updated %>
     <%= form.datetime_select :updated, id: :issue_updated %>
   </div>
-
-  <div class="field">
+ -->
+ 
+  <div class="text_area">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :issue_description %>
+    <%= form.text_area :description, id: :issue_description %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <h4><%= form.submit %></h4>
   </div>
 <% end %>

@@ -27,7 +27,32 @@
   <div class="container">
     <h1>New Issue</h1>
     
-    <%= render 'form', issue: @issue %>
+    <%= form_for @issue, :html => {:class => "form-horizontal center"} do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "* Title:" %>
+        <div class="col-md-4">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :kind, "* Kind:" %>
+        <div class="col-md-4">
+          <%= f.text_field :kind, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :priority, "* Priority:" %>
+        <div class="col-md-4">
+          <%= f.text_field :priority, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :assignee, "Assignee:" %>
+        <div class="col-md-4">
+          <%= f.text_field :assignee, class: "form-control" %>
+        </div>
+      </div>
+    <% end %>
     
     <%= link_to 'Back', issues_path %>
     

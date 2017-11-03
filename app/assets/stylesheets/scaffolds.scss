@@ -2,6 +2,7 @@ body {
   background-color: #fff;
   color: #333;
   margin: 33px;
+  padding: 40px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -33,11 +34,12 @@ a {
 }
 
 th {
-  padding-bottom: 5px;
+
+  padding: 20px;
 }
 
 td {
-  padding: 0 5px 7px;
+  padding: 0 20px 20px;
 }
 
 div {
@@ -81,4 +83,8 @@ div {
 
 label {
   display: block;
+}
+
+#index-title {
+  padding-left: 20px;
 }

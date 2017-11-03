@@ -18,3 +18,15 @@
 	margin: 0;
 	height: 100%;
 }
+
+.submit-button {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 6px;
+	padding-top: 6px;
+}
+
+.required:before {
+	content: "* ";
+	color: red;
+}

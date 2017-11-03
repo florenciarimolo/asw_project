@@ -46,9 +46,8 @@
       <% @issues.each do |issue| %>
         <tr>
           <td>
-            <a href=issues/<%=issue.id%>><div class="hover-item">
+            <a href=issues/<%=issue.id%>>
               #<%= issue.id %>: <%= issue.title %>
-             </div>
             </a>
           </td>
           <td><%= issue.kind %></td>
@@ -56,10 +55,8 @@
           <td><%= issue.status %></td>
           <td><%= issue.votes %></td>
           <% if (issue.assignee != "") %>
-              <td><a href= /users/<%=@users.where(username: issue.assignee).first.id%>><div class="hover-item">
-              <%=issue.assignee%></div></a></td>
-          <% end %>
-          
+              <td><a href= /users/<%=@users.where(username: issue.assignee).first.id%>>
+              <%=issue.assignee%></a></td>
           <% else %>  
             <td><%= issue.assignee %></td>
           <% end %>

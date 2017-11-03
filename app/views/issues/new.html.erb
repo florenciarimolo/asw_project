@@ -26,10 +26,11 @@
   </nav>
   <p id="notice"><%= notice %></p>
   <div class="container">
-  <h1>New Issue</h1>
+    <h1>New Issue</h1>
+    <br>
+    <%= render 'form', issue: @issue %>
 
-  <%= render 'form', issue: @issue %>
+  </div>
 
-  <%= link_to 'Back', issues_path %>
 </body>
 

@@ -1,4 +1,4 @@
-<%= form_with(model: issue, local: true) do |form| %>
+<%= form_for @issue, :html => {:class => "form-horizontal center"} do |form| %>
   <% if issue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :issue_title %>
+  <div class="field form-group col-md-8">
+    <label class="required">Title</label>
+    <%= form.text_field :title, id: :issue_title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.select :kind, [['bug','bug'],['enhancement','enhancement'],['proposal','proposal'],['task','task']] %>
+  <div class="field form-group col-md-8">
+    <label class="required">Kind</label>
+    <%= form.select :kind, [['bug','bug'],['enhancement','enhancement'],['proposal','proposal'],['task','task']], {}, class: "form-control"  %>
     <% form.submit %>
   </div>
   
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.select :priority, [['trivial','trivial'],['minor','minor'],['major','major'],['critical','critical'],['blocker','blocker']] %>
+  <div class="field form-group col-md-8">
+    <label class="required">Priority</label>
+    <%= form.select :priority, [['trivial','trivial'],['minor','minor'],['major','major'],['critical','critical'],['blocker','blocker']], {},class: "form-control" %>
     <% form.submit %>
   </div>  
   
@@ -38,7 +38,7 @@
     <%= form.number_field :votes, id: :issue_votes %>
   </div>
  -->
-  <div class="field">
+  <div class="field form-group col-md-8">
     <%= form.label :assignee %>
     <%= form.text_field :assignee, id: :issue_assignee %>
   </div>
@@ -54,12 +54,12 @@
   </div>
  -->
  
-  <div class="text_area">
+  <div class="text_area form-group col-md-8">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :issue_description %>
+    <%= form.text_area :description, id: :issue_description, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <h4><%= form.submit %></h4>
+  <div class="actions submit-button col-md-8">
+    <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
   </div>
 <% end %>

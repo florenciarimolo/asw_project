@@ -55,11 +55,10 @@
           <td><%= issue.priority %></td>
           <td><%= issue.status %></td>
           <td><%= issue.votes %></td>
-          <% if (issue.assignee != nil) %>
-            <% if (@users.where(username: issue.assignee).first != nil) %>
+          <% if (issue.assignee != "") %>
               <td><a href= /users/<%=@users.where(username: issue.assignee).first.id%>><div class="hover-item">
               <%=issue.assignee%></div></a></td>
-            <% end %>
+          <% end %>
           
           <% else %>  
             <td><%= issue.assignee %></td>

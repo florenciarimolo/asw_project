@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105103426) do
+ActiveRecord::Schema.define(version: 20171105193431) do
 
   create_table "issues", force: :cascade do |t|
     t.string "title"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20171105103426) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", primary_key: "username", id: :string, force: :cascade do |t|
     t.string "full_name"
-    t.string "username"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "sqlite_autoindex_users_1", unique: true
   end
 
 end

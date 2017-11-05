@@ -7,8 +7,6 @@ one:
   status: MyString
   votes: 1
   assignee: MyString
-  created: 2017-10-30 23:04:33
-  updated: 2017-10-30 23:04:33
   description: MyString
 
 two:
@@ -18,6 +16,4 @@ two:
   status: MyString
   votes: 1
   assignee: MyString
-  created: 2017-10-30 23:04:33
-  updated: 2017-10-30 23:04:33
   description: MyString

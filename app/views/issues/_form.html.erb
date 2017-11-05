@@ -32,7 +32,6 @@
     <%= form.label :status %>
     <%= form.text_field :status, id: :issue_status %>
   </div>
-
   <div class="field">
     <%= form.label :votes %>
     <%= form.number_field :votes, id: :issue_votes %>
@@ -43,16 +42,6 @@
     <%= form.text_field :assignee, id: :issue_assignee %>
   </div>
 
- <!-- <div class="field">
-    <%= form.label :created %>
-    <%= form.datetime_select :created, id: :issue_created %>
-  </div>
-
-  <div class="field">
-    <%= form.label :updated %>
-    <%= form.datetime_select :updated, id: :issue_updated %>
-  </div>
- -->
  
   <div class="text_area form-group col-md-8">
     <%= form.label :description %>

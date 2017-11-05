@@ -7,5 +7,3 @@ class Issue < ApplicationRecord
     VALID_PRIORITIES = %w( trivial minor major critical blocker )
     validates_inclusion_of :priority, :in => VALID_PRIORITIES
 end
-
-

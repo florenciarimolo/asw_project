@@ -18,13 +18,13 @@
 
   <div class="field form-group col-md-8">
     <label class="required">Kind</label>
-    <%= form.select :kind, [['bug','bug'],['enhancement','enhancement'],['proposal','proposal'],['task','task']], {}, class: "form-control"  %>
+    <%= form.select :kind, [['Bug','bug'],['Enhancement','enhancement'],['Proposal','proposal'],['Task','task']], {}, class: "form-control"  %>
     <% form.submit %>
   </div>
   
   <div class="field form-group col-md-8">
     <label class="required">Priority</label>
-    <%= form.select :priority, [['trivial','trivial'],['minor','minor'],['major','major'],['critical','critical'],['blocker','blocker']], {},class: "form-control" %>
+    <%= form.select :priority, [['Trivial','trivial'],['Minor','minor'],['Major','major'],['Critical','critical'],['Blocker','blocker']], {},class: "form-control" %>
     <% form.submit %>
   </div>  
   
@@ -39,7 +39,10 @@
  -->
   <div class="field form-group col-md-8">
     <%= form.label :assignee %>
-    <%= form.text_field :assignee, id: :issue_assignee %>
+    <!-- f.select :category, Category.all, :prompt => "Select One" 
+    :category, Category.all.map{|c| [c.name, c.id]}, :prompt => "Select One"
+    form.text_field :assignee, id: :issue_assignee, class: "form-control"-->
+    <%= form.select :assignee, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One"  %>
   </div>
 
  

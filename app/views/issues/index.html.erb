@@ -60,8 +60,8 @@
           <% else %>  
             <td><%= issue.assignee %></td>
           <% end %>
-          <td><%= issue.created_at %></td>
-          <td><%= issue.updated_at %></td>
+          <td><%= issue.created_at.strftime("%d-%m-%Y %R") %></td>
+          <td><%= issue.updated_at.strftime("%d-%m-%Y %R") %></td>
           <!--<td><%= link_to '', edit_issue_path(issue) %></td> -->
           <!--<td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       <% end %>

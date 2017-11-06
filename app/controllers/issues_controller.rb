@@ -27,6 +27,8 @@ class IssuesController < ApplicationController
     # POST /issues.json
     def create
         @issue = Issue.new(issue_params)
+        @issue.status = "new"
+        @issue.votes = 0
         
         respond_to do |format|
             if @issue.save

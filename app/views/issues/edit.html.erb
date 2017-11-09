@@ -1,28 +1,9 @@
 <html>
 <head>
 <title>Edit</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <%= stylesheet_link_tag "application" %>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-<div class="navbar-header">
-<h4 class="navbar-text"><strong>Issue Tracker</strong></h4>
-</div>
-<ul class="nav navbar-nav">
-<li><a href="<%=issues_path%>" data-confirm="Chages do not saved. Exit from this page?">Home</a></li>
-<li><a href="<%=new_issue_path%>" data-confirm="Chages do not saved. Exit from this page?">New Issue</a></li>
-</ul>
-</div>
-</nav>
 <p id="notice"><%= notice %></p>
 <div class="container">
 <h1>Editing Issue</h1>

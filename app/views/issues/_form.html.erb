@@ -54,10 +54,6 @@
     <%= form.text_area :description, id: :issue_description, class: "form-control" %>
   </div>
 
-  <div class="actions submit-button col-md-8">
-    <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
-  </div>
-
   <% if params[:action] == "new" %>
     <div class="actions submit-button col-md-8">
       <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
@@ -69,4 +65,5 @@
      <%= form.submit "Save changes", class: "btn btn-default btn-primary" %>
     </div>
   <% end %>
+  
 <% end %>

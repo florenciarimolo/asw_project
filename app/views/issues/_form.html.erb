@@ -28,15 +28,19 @@
     <% form.submit %>
   </div>  
   
- <!-- <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :issue_status %>
-  </div>
-  <div class="field">
+  <!--<div class="field">
     <%= form.label :votes %>
     <%= form.number_field :votes, id: :issue_votes %>
-  </div>
- -->
+  </div>-->
+
+  <% if params[:action] == "edit" %>
+    <div class="field form-group col-md-8">
+    <label>Status</label>
+    <%= form.select :status, [['New','new'],['Resolved','resolved'],['WontFix','wontfix']], {},class: "form-control" %>
+    <% form.submit %>
+    </div>
+  <% end %>
+ 
   <div class="field form-group col-md-8">
     <%= form.label :assignee %>
     <!-- f.select :category, Category.all, :prompt => "Select One" 
@@ -44,7 +48,6 @@
     form.text_field :assignee, id: :issue_assignee, class: "form-control"-->
     <%= form.select :assignee, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One"  %>
   </div>
-
  
   <div class="text_area form-group col-md-8">
     <%= form.label :description %>
@@ -54,4 +57,16 @@
   <div class="actions submit-button col-md-8">
     <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
   </div>
+
+  <% if params[:action] == "new" %>
+    <div class="actions submit-button col-md-8">
+      <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
+    </div>
+  <% end %>
+  
+  <% if params[:action] == "edit" %>
+    <div class="actions submit-button col-md-8">
+     <%= form.submit "Save changes", class: "btn btn-default btn-primary" %>
+    </div>
+  <% end %>
 <% end %>

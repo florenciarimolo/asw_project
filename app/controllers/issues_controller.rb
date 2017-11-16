@@ -17,6 +17,7 @@ class IssuesController < ApplicationController
     # GET /issues/new
     def new
         @issue = Issue.new
+        @issue.comments.build
     end
     
     # GET /issues/1/edit
@@ -73,6 +74,6 @@ class IssuesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-        params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description)
+        params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description, comments_atributes: [:usuari, :comentari, :created])
     end
 end

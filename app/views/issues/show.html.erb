@@ -38,12 +38,11 @@
     </p>
     
     <p>
-      <strong>Votes:</strong>
-      <%= @issue.votes %>
+      <strong>Votes:</strong> <%= @issue.votes %>
     </p>
     
     <p>
-      <strong>Assignee:</strong> <%= @issue.assignee %>
+      <strong>Assignee:</strong><td><a href= /users/><%=@issue.assignee%></a></td>
     </p>
     
     <p>
@@ -60,5 +59,12 @@
     
     <%= link_to 'Edit', edit_issue_path(@issue) %> |
     <%= link_to 'Back', issues_path %>
+    
+    <p>
+      <h2>Comments ()</h2>
+    </p>
+    
+  
+   
   </div>
 </body>

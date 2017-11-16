@@ -6,4 +6,7 @@ class Issue < ApplicationRecord
     validates_inclusion_of :kind, :in => VALID_KINDS
     VALID_PRIORITIES = %w( trivial minor major critical blocker )
     validates_inclusion_of :priority, :in => VALID_PRIORITIES
+    has_many :comments, dependent: :destroy
+    
+    accepts_nested_attributes_for :comments
 end

@@ -13,10 +13,10 @@
   
    
   <div class="field form-group col-md-8">
-    <%= form.label :issue %>
-    <%= form.collection_select :issue , Issue.all.map{@issue [@issue.title]}, {}, class: "form-control", :prompt => "Select One", type="issue"  %>
+    <%= form.label :issue_id %>
+    <%= form.select :issue_id, Issue.all.map{|c| [c.id, c.id]}, {}, class: "form-control", :prompt => "Select One" %>
   </div>
-  
+    
   <div class="field form-group col-md-8">
     <%= form.label :user %>
     <%= form.select :user, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One"  %>
@@ -29,5 +29,5 @@
     
   <div class="actions submit-button col-md-8">
     <%= form.submit "Comment", class: "btn btn-default btn-primary" %>
-  </div> 
+  </div>
 <% end %>

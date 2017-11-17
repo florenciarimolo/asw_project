@@ -42,7 +42,7 @@
     </p>
     
     <p>
-      <strong>Assignee:</strong><td><a href= /users/><%=@issue.assignee%></a></td>
+      <strong>Assignee: </strong><td><a href= /users/><%=@issue.assignee%></a></td>
     </p>
     
     <p>
@@ -61,10 +61,22 @@
     <%= link_to 'Back', issues_path %>
     
     <p>
-      <h2>Comments ()</h2>
+      
+      <h2>Comments (<%= @issue.comments.count %>)</h2>
+      
+      <% if not @issue.comments.empty? %>
+        <%= @issue.comments.each do |comment| %>
+        <tr>
+        <td><%= comment.user %></td>
+        <td><%= comment.comment %></td>
+        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td>
+        </tr>
+        <%end%>
+      <%end%>
+      
+      <%= link_to 'Add Comment', new_comment_path %>
+      
     </p>
-    
-  
-   
+
   </div>
 </body>

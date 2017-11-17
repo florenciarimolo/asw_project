@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
-    validates :comentari, presence: true
+    validates :comment, presence: true
     belongs_to :issue
 end

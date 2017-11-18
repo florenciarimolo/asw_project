@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments/1?issue_id=:issue_id
-  # GET /comments/1?issue_id=:issue_id.json
+  # GET /comments
+  # GET /comments.json
   def index
     @comments = Comment.all
     #@comments = Issue.comments.all

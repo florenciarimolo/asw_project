@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
-    
   end
 
   # GET /comments/1
@@ -17,7 +16,6 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    @issues = Issue.all
   end
 
   # GET /comments/1/edit
@@ -27,9 +25,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-   # @comment = @issue.comments.build(comment_params)
-    @comment = Comment.new(comment_params)
-
+    @comment = @issue.comments.new(comment_params)
+    #@comment.issue_id = @issue.id
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to issues_url, notice: 'Comment was successfully created.' }

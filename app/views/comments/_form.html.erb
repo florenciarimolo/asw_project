@@ -12,14 +12,14 @@
   <% end %>
   
    
-  <div class="field form-group col-md-8">
+  <!-- <div class="field form-group col-md-8">
     <%= form.label :issue_id %>
     <%= form.select :issue_id, Issue.all.map{|c| [c.id, c.id]}, {}, class: "form-control", :prompt => "Select One" %>
-  </div>
+  </div> -->
     
   <div class="field form-group col-md-8">
     <%= form.label :user %>
-    <%= form.select :user, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One"  %>
+    <%= form.select :user, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One" %>
   </div>
   
   <div class="text_area form-group col-md-8">

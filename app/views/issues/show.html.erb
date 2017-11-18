@@ -51,14 +51,16 @@
     
     <p>
       
-      <h2>Comments (<%= @issue.comments.count %>)</h2>
+      <h3>Comments (<%= @issue.comments.count %>)</h3>
       
       <% if not @issue.comments.empty? %> 
         <% @issue.comments.each do |comment| %>
         <tr>
         <td><strong><a href= /users/><%=comment.user%></a></strong></td>
         <td><%= comment.comment %></td><br />
-        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td>
+        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td><br />
+        <td><%= link_to 'Edit', edit_comment_path(:issue_id => @issue.id) %></td><br />
+        <td><%= link_to 'Delete', comment , method: :delete, data: { confirm: 'Are you sure?'}  %></td><br /><br />
         </tr> 
         <%end%>
       <%end%>

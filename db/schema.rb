@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20171109190528) do
     t.string "image_url"
     t.index ["username"], name: "index_users_on_username"
     t.index ["username"], name: "sqlite_autoindex_users_1", unique: true
-    t.index [nil], name: "index_users_on_id"
   end
 
 end

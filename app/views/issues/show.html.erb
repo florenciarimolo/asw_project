@@ -56,14 +56,14 @@
       <% if not @issue.comments.empty? %> 
         <% @issue.comments.each do |comment| %>
         <tr>
-        <td><strong><a href= /users/><%=comment.user%></a></td></strong><br />
+        <td><strong><a href= /users/><%=comment.user%></a></strong></td>
         <td><%= comment.comment %></td><br />
-        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td><br /><br />
+        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td>
         </tr> 
         <%end%>
       <%end%>
       
-      <h4><%= link_to 'Add Comment', new_issue_comment_path(:issue_id => @issue.id) %></h4>
+      <h4><%= link_to 'Add Comment', new_comment_path(:issue_id => @issue.id) %></h4>
 
     </p>
 

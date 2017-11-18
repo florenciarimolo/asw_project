@@ -1,33 +1,35 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /issues/1/comments
-  # GET /issues/1/comments.json
+  # GET /comments/1?issue_id=:issue_id
+  # GET /comments/1?issue_id=:issue_id.json
   def index
     @comments = Comment.all
     #@comments = Issue.comments.all
   end
 
-  # GET /issues/1/comments/1
-  # GET /issues/1/comments/1.json
+  # GET /comments/1?issue_id=:issue_id
+  # GET /comments/1?issue_id=:issue_id.json
   def show
     @comments = Comment.all
     #@comments = Issue.comments.all
   end
 
-  # GET /issues/1/comments/new
+  # GET /comments/new?issue_id=:issue_id
   def new
     @comment = Comment.new
+    @issue = Issue.find(params[:issue_id])
   end
 
-  # GET /issues/1/comments/1/edit
+  # GET /comments/1/edit?issue_id=:issue_id
   def edit
   end
 
-  # POST /issues/1/comments
-  # POST /issues/1/comments.json
+  # POST /comments?issue_id=:issue_id
+  # POST /comments?issue_id=:issue_id.json
   def create
     #@comment = Issue.comments.new(comment_params)
+
     @comment = Comment.new(comment_params)
     
     respond_to do |format|
@@ -41,8 +43,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /issues/1/comments/1
-  # PATCH/PUT /issues/1/comments/1.json
+  # PATCH/PUT /comments/1?issue_id=:issue_id
+  # PATCH/PUT /comments/1?issue_id=:issue_id.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -55,8 +57,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /issues/1/comments/1
-  # DELETE /issues/1/comments/1.json
+  # DELETE /comments/1?issue_id=:issue_id
+  # DELETE /comments/1?issue_id=:issue_id.json
   def destroy
     @comment.destroy
     respond_to do |format|

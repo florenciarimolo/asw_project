@@ -1,33 +1,29 @@
-<%= form_for @comment, url: new_issue_comment_path, :html => {:class => "form-horizontal center"} do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_for @comment, url: {action: "create", params: {issue_id: @issue.id}}, :html => {:class => "form-horizontal center"} do |form| %>
+    <% if comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= form.hidden_field :issue_id, { :value => @issue.id} %>
+
+    <div class="field form-group col-md-8">
+      <%= form.label :user %>
+      <%= form.select :user, User.all.map {|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One" %>
     </div>
-  <% end %>
-  
-   
-  <!-- <div class="field form-group col-md-8">
-    <%= form.label :issue_id %>
-    <%= form.select :issue_id, Issue.all.map{|c| [c.id, c.id]}, {}, class: "form-control", :prompt => "Select One" %>
-  </div> -->
-    
-  <div class="field form-group col-md-8">
-    <%= form.label :user %>
-    <%= form.select :user, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One" %>
-  </div>
-  
-  <div class="text_area form-group col-md-8">
-    <%= form.label :comment %>
-    <%= form.text_area :comment, id: :comment_comment, class: "form-control" %>
-  </div>
-    
-  <div class="actions submit-button col-md-8">
-    <%= form.submit "Comment", class: "btn btn-default btn-primary" %>
-  </div>
+
+    <div class="text_area form-group col-md-8">
+      <%= form.label :comment %>
+      <%= form.text_area :comment, id: :comment_comment, class: "form-control" %>
+    </div>
+
+    <div class="actions submit-button col-md-8">
+      <%= form.submit "Comment", class: "btn btn-default btn-primary" %>
+    </div>
 <% end %>

@@ -33,10 +33,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li ><%= image_tag current_user.image_url, alt: current_user.username %></li>
           <li id="user-info"><%= link_to current_user.username, current_user %></li>
-          <li><span id="logout-icon" class="glyphicon glyphicon-log-out"></span></li>
-          <li>
-            <%= link_to 'Logout', logout_path, method: :delete %>
-          </li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
     <% else %>
         <ul class="nav navbar-nav">

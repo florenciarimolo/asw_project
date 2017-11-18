@@ -1,36 +1,38 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
+  # GET /issues/1/comments
+  # GET /issues/1/comments.json
   def index
     @comments = Comment.all
+    #@comments = Issue.comments.all
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
+  # GET /issues/1/comments/1
+  # GET /issues/1/comments/1.json
   def show
     @comments = Comment.all
+    #@comments = Issue.comments.all
   end
 
-  # GET /comments/new
+  # GET /issues/1/comments/new
   def new
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
+  # GET /issues/1/comments/1/edit
   def edit
   end
 
-  # POST /comments
-  # POST /comments.json
+  # POST /issues/1/comments
+  # POST /issues/1/comments.json
   def create
-    @comment = @issue.comments.new(comment_params)
-    #@comment.issue_id = @issue.id
+    #@comment = Issue.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
     
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to issues_url, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -39,8 +41,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
+  # PATCH/PUT /issues/1/comments/1
+  # PATCH/PUT /issues/1/comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -53,8 +55,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+  # DELETE /issues/1/comments/1
+  # DELETE /issues/1/comments/1.json
   def destroy
     @comment.destroy
     respond_to do |format|

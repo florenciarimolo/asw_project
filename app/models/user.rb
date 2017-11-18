@@ -6,7 +6,6 @@ class User < ApplicationRecord
         user.update(
             image_url: auth_hash.info.image,
             full_name: auth_hash.info.name,
-            secret: auth_hash.credentials.secret
         )
         user
     end

@@ -30,3 +30,11 @@
 	content: "* ";
 	color: red;
 }
+
+#user-info{
+    padding-right: 40px;
+}
+
+#logout-icon{
+    padding-top: 18px;
+}

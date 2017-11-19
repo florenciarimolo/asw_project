@@ -102,6 +102,9 @@ html, body {
     padding: 20px 0;
 }
 
+#filter-label{
+    padding-left: 5px;
+}
 #logout-icon {
     padding-right: 8px;
 }

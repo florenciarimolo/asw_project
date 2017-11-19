@@ -26,12 +26,7 @@
     <label class="required">Priority</label>
     <%= form.select :priority, [['Trivial','trivial'],['Minor','minor'],['Major','major'],['Critical','critical'],['Blocker','blocker']], {},class: "form-control" %>
     <% form.submit %>
-  </div>  
-  
-  <!--<div class="field">
-    <%= form.label :votes %>
-    <%= form.number_field :votes, id: :issue_votes %>
-  </div>-->
+  </div>
 
   <% if params[:action] == "edit" %>
     <div class="field form-group col-md-8">

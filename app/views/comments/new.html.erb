@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>New Comment</title>
+<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <h2>New Comment</h2>
+    <br>
+    <%= render 'form', comment: @comment %>
+  </div>
+  <div class="container">
+    <%= link_to "Cancel" , issue_path(@issue.id)%>
+  </div>
+</body>

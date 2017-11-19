@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171119155007) do
 
+  create_table "comments", force: :cascade do |t|
+    t.string "user", null: false
+    t.string "comment", null: false
+    t.string "issue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "issue_lists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,11 +27,11 @@ ActiveRecord::Schema.define(version: 20171119155007) do
   end
 
   create_table "issues", force: :cascade do |t|
-    t.string "title"
-    t.string "kind"
-    t.string "priority"
-    t.string "status"
-    t.integer "votes"
+    t.string "title", null: false
+    t.string "kind", null: false
+    t.string "priority", null: false
+    t.string "status", null: false
+    t.integer "votes", null: false
     t.string "assignee"
     t.string "description"
     t.datetime "created_at", null: false

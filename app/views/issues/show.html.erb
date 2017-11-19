@@ -27,12 +27,11 @@
     </p>
     
     <p>
-      <strong>Votes:</strong>
-      <%= @issue.votes %>
+      <strong>Votes:</strong> <%= @issue.votes %>
     </p>
     
     <p>
-      <strong>Assignee:</strong> <%= @issue.assignee %>
+      <strong>Assignee: </strong><td><a href= /users/><%=@issue.assignee%></a></td>
     </p>
     
     <p>
@@ -49,5 +48,25 @@
     
     <%= link_to 'Edit', edit_issue_path(@issue) %> |
     <%= link_to 'Back', issues_path %>
+    
+    <p>
+      
+      <h3>Comments (<%= @issue.comments.count %>)</h3>
+      
+      <% if not @issue.comments.empty? %> 
+        <% @issue.comments.each do |comment| %>
+        <tr>
+        <td><strong><a href= /users/><%=comment.user%></a></strong></td>
+        <td><%= comment.comment %></td><br />
+        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td><br />
+        <td><%= link_to 'Edit', edit_comment_path(:id => comment.id, :issue_id => @issue.id) %> | <%= link_to 'Delete', comment , method: :delete, data: { confirm: 'Are you sure?'} %></td><br /><br />
+        </tr> 
+        <%end%>
+      <%end%>
+      
+      <h4><%= link_to 'Add Comment', new_comment_path(:issue_id => @issue.id) %></h4>
+
+    </p>
+
   </div>
 </body>

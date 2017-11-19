@@ -37,7 +37,7 @@
           <td><%= issue.status %></td>
           <td><%= issue.votes %></td>
           <% if (issue.assignee != "") %>
-              <td><a href= /users/<%=@users.where(username: issue.assignee).first.id%>>
+              <td><a href= /users/<%=issue.assignee%>>
               <%=issue.assignee%></a></td>
           <% else %>  
             <td><%= issue.assignee %></td>

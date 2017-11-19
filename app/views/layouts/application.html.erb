@@ -17,16 +17,16 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <h4 class="navbar-text"><strong>Issue Tracker</strong></h4>
+    <div class="navbar-left">
+        <a href="#"><img src="logo.png" /></a>
     </div>
 
     <% if current_user %>
         <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="/issues">Home</a>
+        <li>
+          <a href="/">Home</a>
         </li>
         <li><a href=<%= new_issue_path %>>New Issue</a></li>
         </ul>
@@ -37,7 +37,7 @@
         </ul>
     <% else %>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/auth/twitter"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

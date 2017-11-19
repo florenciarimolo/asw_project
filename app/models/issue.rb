@@ -6,4 +6,5 @@ class Issue < ApplicationRecord
     validates_inclusion_of :kind, :in => VALID_KINDS
     VALID_PRIORITIES = %w( trivial minor major critical blocker )
     validates_inclusion_of :priority, :in => VALID_PRIORITIES
+    belongs_to :issue_list
 end

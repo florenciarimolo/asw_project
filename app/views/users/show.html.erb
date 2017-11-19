@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Full name:</strong>
-  <%= @user.full_name %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<html>
+<head>
+<title>Account</title>
+<!-- Latest compiled and minified CSS -->
+<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+    <div class="container">
+        <p id="notice"><%= notice %></p>
+        <h4>Account</h4> 
+        
+        <h4>Avatar</h4>
+        <%= image_tag current_user.image_url, alt: current_user.username, :size => "100x100" %>
+        
+        <p>
+        <h4>Full name  <strong><%= @user.full_name %></strong></h4>
+        </p>
+        
+        <p>
+        <h4>Username  <strong><%= @user.username %></h4></strong>
+        </p>
+  </div>
+</body>

@@ -17,6 +17,7 @@
 html, body {
     margin: 0;
     height: 100%;
+    font-family: sans-serif;
 }
 
 .navbar {
@@ -30,6 +31,7 @@ html, body {
 
 .navbar-default .navbar-nav > li > a {
     color: white !important;
+    font-family: sans-serif;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -91,9 +93,31 @@ html, body {
 .jumbotron.container{
     text-align: center;
 }
+.issue-info-left{
+    display: table-cell;
+    padding-right: 100px;
+}
+
+.issue-attrs {
+    display: table-cell;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
 
 
+#issues{
+    padding: 20px 0;
+}
 
+#issues-toolbar{
+    padding: 20px 0;
+}
+
+#filter-label{
+    padding-left: 5px;
+}
 #logout-icon {
     padding-right: 8px;
 }
@@ -101,3 +125,12 @@ html, body {
 .paddingLeft10px {
     padding-left: 1px;
 }
+
+#issue-add-comment {
+    padding-top: 20px;
+}
+
+#cancel{
+    padding: 20px 0;
+}
+

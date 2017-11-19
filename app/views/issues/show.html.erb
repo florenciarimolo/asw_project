@@ -1,72 +1,70 @@
 <html>
 <head>
-<title>Edit</title>
-<!-- Latest compiled and minified CSS -->
-<%= stylesheet_link_tag "application" %>
+  <title>Issue #<%= @issue.id %>: <%= @issue.title %></title>
+  <!-- Latest compiled and minified CSS -->
+  <%= stylesheet_link_tag "application" %>
 </head>
 <body>
-  <div class="container">
-    <p id="notice"><%= notice %></p>
-    
-    <h1>Issue #<%= @issue.id %>: <%= @issue.title %></h1>
-    
-    <p>
-      <strong>Title:</strong> <%= @issue.title %>
-    </p>
-    
-    <p>
-      <strong>Kind:</strong> <%= @issue.kind %>
-    </p>
-    
-    <p>
-      <strong>Priority:</strong> <%= @issue.priority %>
-    </p>
-    
-    <p>
-      <strong>Status:</strong> <%= @issue.status %>
-    </p>
-    
-    <p>
-      <strong>Votes:</strong> <%= @issue.votes %>
-    </p>
-    
-    <p>
-      <strong>Assignee: </strong><td><a href= /users/><%=@issue.assignee%></a></td>
-    </p>
-    
-    <p>
-      <strong>Created:</strong> <%= @issue.created_at.strftime("%d-%m-%Y %R") %>
-    </p>
-    
-    <p>
-      <strong>Updated:</strong> <%= @issue.updated_at.strftime("%d-%m-%Y %R") %>
-    </p>
-    
-    <p>
-      <strong>Description:</strong> <%= @issue.description %>
-    </p>
-    
-    <%= link_to 'Edit', edit_issue_path(@issue) %> |
-    <%= link_to 'Back', issues_path %>
-    
-    <p>
-      
-      <h3>Comments (<%= @issue.comments.count %>)</h3>
-      
-      <% if not @issue.comments.empty? %> 
-        <% @issue.comments.each do |comment| %>
-        <tr>
-        <td><strong><a href= /users/><%=comment.user%></a></strong></td>
-        <td><%= comment.comment %></td><br />
-        <td><%= comment.created_at.strftime("%d-%m-%Y %R") %></td><br />
-        <td><%= link_to 'Edit', edit_comment_path(:id => comment.id, :issue_id => @issue.id) %> | <%= link_to 'Delete', comment , method: :delete, data: { confirm: 'Are you sure?'} %></td><br /><br />
-        </tr> 
-        <%end%>
-      <%end%>
-      
-      <h4><%= link_to 'Add Comment', new_comment_path(:issue_id => @issue.id) %></h4>
-
-    </p>
-
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="issue-header">
+    <h2>Issue #<%= @issue.id %>: <%= @issue.title %>  <%= @issue.status %></h2>
   </div>
+  <div class="issue-info">
+    <div class="issue-info-left">
+      <div id="issue-main-content">
+        <p><%= image_tag current_user.image_url %>
+          <%= link_to User.where(username: @issue.issue_creator).first.full_name, user_path(@issue.issue_creator) %>
+          created
+          an issue <%= @issue.created_at.strftime("%d-%m-%Y") %></p>
+        <p>
+          <strong>Description:</strong> <%= @issue.description %>
+        </p>
+        <button type="button" class="btn btn-default"><a href=<%= edit_issue_path(@issue.id) %>>Edit</a></button>
+      </div>
+    </div>
+    <div class="issue-attrs">
+      <p>
+        <strong>Assignee: </strong>
+        <%= link_to @issue.assignee, user_path(@issue.assignee) %>
+      </p>
+      <p>
+        <strong>Kind:</strong> <%= @issue.kind %>
+      </p>
+
+      <p>
+        <strong>Priority:</strong> <%= @issue.priority %>
+      </p>
+
+      <p>
+        <strong>Status:</strong> <%= @issue.status %>
+      </p>
+
+      <p>
+        <strong>Votes:</strong> <%= @issue.votes %>
+      </p>
+
+
+    </div>
+    <div class="issues-footer">
+      <h3>Comments (<%= @issue.comments.count %>)</h3>
+      <% if not @issue.comments.empty? %>
+          <% @issue.comments.each do |comment| %>
+              <p><%= image_tag current_user.image_url %>
+                <%= link_to User.where(username: @issue.issue_creator).first.full_name, user_path(@issue.issue_creator) %>
+                (<%= time_ago_in_words(comment.created_at.strftime("%d-%m-%Y %R")) %> ago):    <%= comment.comment %>
+              </p>
+              <p><%= link_to 'Edit', edit_comment_path(:id => comment.id, :issue_id => @issue.id) %>
+                | <%= link_to 'Delete', comment, method: :delete, data: {confirm: 'Are you sure?'} %></p>
+          <% end %>
+      <% end %>
+
+    </div>
+    <div id="issue-add-comment">
+      <button type="button" class="btn btn-default"><%= link_to 'Add comment', new_comment_path(:issue_id => @issue.id) %></button>
+    </div>
+  </div>
+
+
+</div>
 </body>

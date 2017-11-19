@@ -7,6 +7,12 @@ class IssuesController < ApplicationController
         check_auth
         @issues = Issue.all
         @users = User.all
+        @issues_lists = IssueList.all
+        @param_issue=params[:issue_list]
+      if @param_issue
+          @issue_list_id = IssueList.where(:name => @param_issue).first.id
+          @issues = Issue.where(:issue_list_id => @issue_list_id)
+      end
     end
     
     # GET /issues/1
@@ -81,6 +87,6 @@ class IssuesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
-        params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description, :comments )
+        params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description, :comments, :issue_list_id, :issue_creator )
     end
 end

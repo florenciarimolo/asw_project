@@ -17,10 +17,7 @@
     <%= form.hidden_field :issue_id, { :value => @issue.id} %>
     <% end %>
 
-    <div class="field form-group col-md-8">
-      <%= form.label :user %>
-      <%= form.select :user, User.all.map {|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One" %>
-    </div>
+
 
     <div class="text_area form-group col-md-8">
       <%= form.label :comment %>
@@ -29,5 +26,9 @@
 
     <div class="actions submit-button col-md-8">
       <%= form.submit "Comment", class: "btn btn-default btn-primary" %>
+      <!-- <button class="btn btn-default btn-primary"> -->
+      <%= link_to "Cancel" , issue_path(@issue.id)%>
+
+      <!-- </button> -->
     </div>
 <% end %>

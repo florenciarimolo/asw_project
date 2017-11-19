@@ -97,3 +97,7 @@ html, body {
 #logout-icon {
     padding-right: 8px;
 }
+
+.paddingLeft10px {
+    padding-left: 1px;
+}

@@ -13,7 +13,7 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        format.html { redirect_to  issue_path(@upload.issues_id), notice: 'Comment was successfully created.' }
+        format.html { redirect_to  issue_path(@upload.issues_id), notice: 'Upload successfull.' }
         #format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

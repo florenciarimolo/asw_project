@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :issue_lists
   resources :issues
   resources :users
   get '/auth/twitter/callback', to: 'sessions#create'

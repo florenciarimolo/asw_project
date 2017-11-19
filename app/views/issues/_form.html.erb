@@ -42,6 +42,7 @@
     :category, Category.all.map{|c| [c.name, c.id]}, :prompt => "Select One"
     form.text_field :assignee, id: :issue_assignee, class: "form-control"-->
     <%= form.select :assignee, User.all.map{|c| [c.username, c.username]}, {}, class: "form-control", :prompt => "Select One"  %>
+
   </div>
 
   <div class="field form-group col-md-8">
@@ -50,6 +51,7 @@
     :category, Category.all.map{|c| [c.name, c.id]}, :prompt => "Select One"
     form.text_field :assignee, id: :issue_assignee, class: "form-control"-->
     <%= form.select :issue_list_id, IssueList.all.map{|c| [c.name, c.id]}, {}, class: "form-control", :prompt => "Select One"  %>
+
   </div>
  
   <div class="text_area form-group col-md-8">

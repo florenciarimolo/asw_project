@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Index</title>
+  <title>Index</title>
 
-<%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application" %>
 </head>
 <body>
-  <p id="notice"><%= notice %></p>
-  <div class="container">
+<p id="notice"><%= notice %></p>
+<div class="container">
   <h1>Issues</h1>
 
-  <table class="table table-striped">
-    <thead>
+  <div id="issues-toolbar">
+    <div class="filter-container">
+      <p class="filter-label">FILTER BY:</p>
+      <table class="filters-table">
+      <tr class="filter-status">
+        <td id="all" aria-pressed="true">
+          <a href="/issues">All</a>
+        </td>
+        <% @issues_lists.each do |issue_list| %>
+        <td>
+          <a href=/issues?issue_list=<%= issue_list.name %>><%= issue_list.name%></a>
+        </td>
+            <% end %>
+
+      </tr>
+      </table>
+    </div>
+  </div>
+  <div id="issues">
+    <table class="table table-hover">
+      <thead>
       <tr>
         <th>Title</th>
-        <th>Kind</th>
-        <th>Priority</th>
+        <th>T</th>
+        <th>P</th>
         <th>Status</th>
         <th>Votes</th>
         <th>Assignee</th>
         <th>Created</th>
         <th>Updated</th>
       </tr>
-    </thead>
+      </thead>
 
-    <tbody>
+      <tbody>
       <% @issues.each do |issue| %>
-        <tr>
-          <td>
-            <a href=/issues/<%=issue.id%>>
-              #<%= issue.id %>: <%= issue.title %>
-            </a>
-          </td>
-          <td><%= issue.kind %></td>
-          <td><%= issue.priority %></td>
-          <td><%= issue.status %></td>
-          <td><%= issue.votes %></td>
-          <% if (issue.assignee != "") %>
-              <td><a href= /users/<%=issue.assignee%>>
-              <%=issue.assignee%></a></td>
-          <% else %>  
-            <td><%= issue.assignee %></td>
-          <% end %>
-          <td><%= issue.created_at.strftime("%d-%m-%Y %R") %></td>
-          <td><%= issue.updated_at.strftime("%d-%m-%Y %R") %></td>
-          <!--<td><%= link_to '', edit_issue_path(issue) %></td> -->
-          <!--<td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          <tr>
+            <td>
+              <a href=/issues/<%= issue.id %>>
+                #<%= issue.id %>: <%= issue.title %>
+              </a>
+            </td>
+            <td><%= issue.kind %></td>
+            <td><%= issue.priority %></td>
+            <td><%= issue.status %></td>
+            <td><%= issue.votes %></td>
+            <% if issue.assignee != "" %>
+                <td class><a href=/users/<%= issue.assignee %>>
+                  <%= issue.assignee %></a></td>
+            <% else %>
+                <td><%= issue.assignee %></td>
+            <% end %>
+            <td><%= issue.created_at.strftime("%d-%m-%Y %R") %></td>
+            <td><%= issue.updated_at.strftime("%d-%m-%Y %R") %></td>
+            <!--<td><%= link_to '', edit_issue_path(issue) %></td> -->
+            <!--<td><%= link_to 'Destroy', issue, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
       <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
 </body>

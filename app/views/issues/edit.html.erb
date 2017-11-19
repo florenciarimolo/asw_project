@@ -9,7 +9,13 @@
 <h1>Editing Issue</h1>
 
 <%= render 'form', issue: @issue %>
-
+<!--<%= form_for @issue, :html => {:class => "form-horizontal center"} do |form|%>
+<div class="field form-group col-md-8">
+    <label class="required">Status</label>
+    <%= form.select :status, [['New','new'],['Resolved','resolved'],['WontFix','wontfix']], {},class: "form-control" %>
+    <% form.submit %>
+</div>
+<% end %>-->
 <a href="." data-confirm="Chages do not saved. Go back?">Go back</a>
 
 </div>

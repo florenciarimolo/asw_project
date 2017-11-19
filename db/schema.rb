@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20171117223706) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.index ["username"], name: "index_users_on_username"
     t.index ["username"], name: "sqlite_autoindex_users_1", unique: true
   end
 

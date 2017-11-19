@@ -8,6 +8,7 @@ class Issue < ApplicationRecord
     validates_inclusion_of :priority, :in => VALID_PRIORITIES
     belongs_to :issue_list
     has_many :comments, dependent: :destroy
+    has_many :uploads, dependent: :destroy
     
     accepts_nested_attributes_for :comments
 end

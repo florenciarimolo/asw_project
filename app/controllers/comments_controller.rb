@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
     #@comments = Issue.comments.all
   end
 
-  # GET /comments/1?issue_id=:issue_id
-  # GET /comments/1?issue_id=:issue_id.json
+  # GET /comments/:id?issue_id=:issue_id
+  # GET /comments/:id?issue_id=:issue_id.json
   def show
     @comments = Comment.all
     #@comments = Issue.comments.all
@@ -21,15 +21,13 @@ class CommentsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
   end
 
-  # GET /comments/1/edit?issue_id=:issue_id
+  # GET /comments/:id/edit?issue_id=:issue_id
   def edit
   end
 
   # POST /comments?issue_id=:issue_id
   # POST /comments?issue_id=:issue_id.json
   def create
-    #@comment = Issue.comments.new(comment_params)
-
     @comment = Comment.new(comment_params)
     
     respond_to do |format|
@@ -43,8 +41,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1?issue_id=:issue_id
-  # PATCH/PUT /comments/1?issue_id=:issue_id.json
+  # PATCH/PUT /comments/:id?issue_id=:issue_id
+  # PATCH/PUT /comments/:id?issue_id=:issue_id.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -57,8 +55,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1?issue_id=:issue_id
-  # DELETE /comments/1?issue_id=:issue_id.json
+  # DELETE /comments/:id?issue_id=:issue_id
+  # DELETE /comments/:id?issue_id=:issue_id.json
   def destroy
     @pathissue = issue_path(@comment.issue_id)
     @comment.destroy

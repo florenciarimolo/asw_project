@@ -1,4 +1,6 @@
-<%= form_for @comment, url: {action: "create", params: {issue_id: @issue.id}}, :html => {:class => "form-horizontal center"} do |form| %>
+<%= form_for @comment, # url: {action="create" , params {:issue_id => @issue.id}},
+:html => {:class => "form-horizontal center"} do |form| %>
+
     <% if comment.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -11,7 +13,9 @@
         </div>
     <% end %>
 
+    <% if params[:action] == "new" %>
     <%= form.hidden_field :issue_id, { :value => @issue.id} %>
+    <% end %>
 
     <div class="field form-group col-md-8">
       <%= form.label :user %>

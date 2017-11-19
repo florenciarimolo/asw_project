@@ -65,13 +65,16 @@
     <% if params[:action] == "new" %>
         <div class="actions submit-button col-md-8">
           <%= form.submit "Create issue", class: "btn btn-default btn-primary" %>
+          <p><a href="/" data-confirm="Chages do not saved. Go back?">Cancel</a></p>
         </div>
     <% end %>
 
     <% if params[:action] == "edit" %>
         <div class="actions submit-button col-md-8">
           <%= form.submit "Save changes", class: "btn btn-default btn-primary" %>
+          <p id="cancel"><a href="." data-confirm="Chages do not saved. Go back?">Cancel</a></p>
         </div>
     <% end %>
+
 
 <% end %>

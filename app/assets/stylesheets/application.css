@@ -125,3 +125,7 @@ html, body {
 #issue-add-comment {
     padding-top: 20px;
 }
+
+#cancel{
+    padding: 20px 0;
+}

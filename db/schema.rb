@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119155007) do
+ActiveRecord::Schema.define(version: 20171119205433) do
 
   create_table "comments", force: :cascade do |t|
     t.string "user", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171119155007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "issue_list_id"
+    t.string "issue_creator"
     t.index ["issue_list_id"], name: "index_issues_on_issue_list_id"
   end
 

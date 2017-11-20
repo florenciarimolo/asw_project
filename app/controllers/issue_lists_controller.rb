@@ -28,7 +28,7 @@ class IssueListsController < ApplicationController
 
     respond_to do |format|
       if @issue_list.save
-        format.html { redirect_to @issue_list, notice: 'Issue list was successfully created.' }
+        format.html { redirect_to issues_path, notice: 'Issue list was successfully created.' }
         format.json { render :show, status: :created, location: @issue_list }
       else
         format.html { render :new }

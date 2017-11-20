@@ -26,6 +26,10 @@ html, body {
     color: white;
 }
 
+.btn-default:hover {
+    color: white;
+}
+
 .navbar {
     border-radius: 0 !important;
 }

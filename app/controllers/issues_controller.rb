@@ -14,7 +14,7 @@ class IssuesController < ApplicationController
           @issues = Issue.where(:issue_list_id => @issue_list_id)
       end
     end
-    
+
     # GET /issues/1
     # GET /issues/1.json
     def show
@@ -22,18 +22,18 @@ class IssuesController < ApplicationController
         @uploads=Upload.where(:issues_id => @issue.id)
         @users=User.all
     end
-    
+
     # GET /issues/new
     def new
         check_auth
         @issue = Issue.new
     end
-    
+
     # GET /issues/1/edit
     def edit
         check_auth
     end
-    
+
     # POST /issues
     # POST /issues.json
     def create
@@ -41,7 +41,7 @@ class IssuesController < ApplicationController
         @issue = Issue.new(issue_params)
         @issue.status = "new"
         @issue.votes = 0
-        
+
         respond_to do |format|
             if @issue.save
                 format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -52,7 +52,7 @@ class IssuesController < ApplicationController
             end
         end
     end
-    
+
     # PATCH/PUT /issues/1
     # PATCH/PUT /issues/1.json
     def update
@@ -67,7 +67,7 @@ class IssuesController < ApplicationController
             end
         end
     end
-    
+
     # DELETE /issues/1
     # DELETE /issues/1.json
     def destroy
@@ -78,16 +78,21 @@ class IssuesController < ApplicationController
             format.json { head :no_content }
         end
     end
-    
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
         @issue = Issue.find(params[:id])
     end
 
-    
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def issue_params
         params.require(:issue).permit(:title, :kind, :priority, :status, :votes, :assignee, :created, :updated, :description, :comments, :issue_list_id, :issue_creator )
+    end
+
+    # GET /issues/1/edit
+    def edit
+        check_auth
     end
 end

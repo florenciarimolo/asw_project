@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments?issue_id=:issue_id
   # GET /comments?issue_id=:issue_id.json
   def index
+    check_auth
     @comments = Comment.all
     #@comments = Issue.comments.all
   end
@@ -11,12 +12,14 @@ class CommentsController < ApplicationController
   # GET /comments/:id?issue_id=:issue_id
   # GET /comments/:id?issue_id=:issue_id.json
   def show
+    check_auth
     @comments = Comment.all
     #@comments = Issue.comments.all
   end
 
   # GET /comments/new?issue_id=:issue_id
   def new
+    check_auth
     @comment = Comment.new
     @issue = Issue.find(params[:issue_id])
   end
@@ -28,8 +31,9 @@ class CommentsController < ApplicationController
   # POST /comments?issue_id=:issue_id
   # POST /comments?issue_id=:issue_id.json
   def create
+    check_auth
     @comment = Comment.new(comment_params)
-    
+    @comment.user = current_user.username
     respond_to do |format|
       if @comment.save
         format.html { redirect_to  issue_path(@comment.issue_id), notice: 'Comment was successfully created.' }
@@ -44,6 +48,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/:id?issue_id=:issue_id
   # PATCH/PUT /comments/:id?issue_id=:issue_id.json
   def update
+    check_auth
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to issue_path(@comment.issue_id), notice: 'Comment was successfully updated.' }
@@ -58,6 +63,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/:id?issue_id=:issue_id
   # DELETE /comments/:id?issue_id=:issue_id.json
   def destroy
+    check_auth
     @pathissue = issue_path(@comment.issue_id)
     @comment.destroy
     respond_to do |format|

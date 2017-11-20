@@ -93,6 +93,19 @@ html, body {
 .jumbotron.container{
     text-align: center;
 }
+.issue-info-left{
+    display: table-cell;
+    padding-right: 100px;
+}
+
+.issue-attrs {
+    display: table-cell;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+
 
 #issues{
     padding: 20px 0;
@@ -110,6 +123,15 @@ html, body {
     padding-right: 8px;
 }
 
+.paddingLeft10px {
+    padding-left: 1px;
+}
 
-    
+#issue-add-comment {
+    padding-top: 20px;
+}
+
+#cancel{
+    padding: 20px 0;
+}
 

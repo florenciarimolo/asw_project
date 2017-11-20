@@ -3,21 +3,44 @@
 <title>Account</title>
 <!-- Latest compiled and minified CSS -->
 <%= stylesheet_link_tag "application" %>
+<style type="text/css">
+    h4 {
+        font-family: sans-serif;
+    }
+    
+    th {
+        margin-left:30px;
+        color: #BEBEBE;
+        font-family: sans-serif;
+    }
+    
+</style>
 </head>
 <body>
     <div class="container">
         <p id="notice"><%= notice %></p>
-        <h4>Account</h4> 
         
-        <h4>Avatar</h4>
-        <%= image_tag current_user.image_url, alt: current_user.username, :size => "100x100" %>
+        <div class="account settings">
         
         <p>
-        <h4>Full name  <strong><%= @user.full_name %></strong></h4>
+        <label><h4><strong>Account</strong></h4></label>
         </p>
         
-        <p>
-        <h4>Username  <strong><%= @user.username %></h4></strong>
-        </p>
+        <table>
+        <tr>
+            <th><h5>Avatar</h5></th>
+            <td><%= image_tag current_user.image_url, alt: current_user.username, :size => "100x100" %></td>
+        </tr>
+        <tr>
+            <th><h5>Full name</h5></th>
+            <td><h5><%= @user.full_name %></h5></td>
+        </tr>
+        <tr>
+            <th><h5>Username</h5></th>
+            <td><h5><%= @user.username %></h5></td>
+        </tr>
+        
+        </table>
+      </div>  
   </div>
 </body>

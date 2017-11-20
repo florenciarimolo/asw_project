@@ -24,11 +24,16 @@
       <%= form.text_area :comment, id: :comment_comment, class: "form-control" %>
     </div>
 
+    <% if params[:action] == "new" %>
     <div class="actions submit-button col-md-8">
       <%= form.submit "Comment", class: "btn btn-default btn-primary" %>
-      <!-- <button class="btn btn-default btn-primary"> -->
-      <%= link_to "Cancel" , issue_path(@issue.id)%>
-
-      <!-- </button> -->
     </div>
+    <%end%>
+    
+    <% if params[:action] == "edit" %>
+    <div class="actions submit-button col-md-8">
+      <%= form.submit "Save Changes", class: "btn btn-default btn-primary" %>
+    </div>
+    <%end%>
+    
 <% end %>

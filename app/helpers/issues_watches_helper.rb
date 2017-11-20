@@ -1,0 +1,2 @@
+module IssuesWatchesHelper
+end

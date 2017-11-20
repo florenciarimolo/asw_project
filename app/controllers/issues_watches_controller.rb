@@ -1,0 +1,2 @@
+class IssuesWatchesController < ApplicationController
+end

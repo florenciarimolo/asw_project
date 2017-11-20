@@ -1,4 +1,4 @@
-<%= form_with(model: issue_list, local: true) do |form| %>
+<%= form_for @issue_list, :html => {:class => "form-horizontal center"} do |form| %>
   <% if issue_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(issue_list.errors.count, "error") %> prohibited this issue_list from being saved:</h2>
@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :issue_list_name %>
+  <div class="field form-group col-md-8">
+    <label class="required"><%= form.label :name %></label>
+    <%= form.text_field :name, id: :issue_list_name, class: "form-control"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions submit-button col-md-8">
+    <%= form.submit "Create List", class: "btn btn-default btn-primary"%>
   </div>
 <% end %>

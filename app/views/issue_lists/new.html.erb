@@ -1,5 +1,16 @@
-<h1>New Issue List</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Issue</title>
+  <%= stylesheet_link_tag "application" %>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>New Issue List</h1>
+  <br>
+  <%= render 'form', issue_list: @issue_list %>
 
-<%= render 'form', issue_list: @issue_list %>
+</div>
 
-<%= link_to 'Back', issue_lists_path %>
+</body>

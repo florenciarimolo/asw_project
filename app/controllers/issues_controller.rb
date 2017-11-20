@@ -19,6 +19,7 @@ class IssuesController < ApplicationController
     # GET /issues/1.json
     def show
         check_auth
+        @uploads=Upload.where(:issues_id => @issue.id)
         @users=User.all
     end
     

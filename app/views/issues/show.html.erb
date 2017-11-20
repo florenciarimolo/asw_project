@@ -20,7 +20,16 @@
         <p>
           <strong>Description:</strong> <%= @issue.description %>
         </p>
+        <p>
+          <% @uploads.each do |upload| %>
+            <td>
+              <a href=<%= upload.attachment_url %>><%= upload.name%></a>
+            </td>
+        <% end %>
+        </p>
         <button type="button" class="btn btn-default"><a href=<%= edit_issue_path(@issue.id) %>>Edit</a></button>
+        <button type="button" class="btn btn-default"><a href=/uploads/new?issue_id=<%= @issue.id %>>Upload</a></button>
+
       </div>
     </div>
     <div class="issue-attrs">

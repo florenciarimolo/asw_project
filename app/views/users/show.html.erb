@@ -27,7 +27,7 @@
         <table>
         <tr>
             <th><h5>Avatar</h5></th>
-            <td><%= image_tag current_user.image_url, alt: current_user.username, :size => "100x100" %></td>
+            <td><%= image_tag @user.image_url, alt: @user.username, :size => "100x100" %></td>
         </tr>
         <tr>
             <th><h5>Full name</h5></th>

@@ -3,7 +3,7 @@ class DeleteBelongsToComments < ActiveRecord::Migration[5.1]
     create_table :comments do |t|
       t.string :user, null: false 
       t.string :comment, null: false 
-      t.string :issue_id, null: false
+      t.integer :issue_id, null: false
       
       t.timestamps
     end

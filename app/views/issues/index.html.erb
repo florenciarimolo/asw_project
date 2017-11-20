@@ -54,7 +54,7 @@
             <td><%= issue.kind %></td>
             <td><%= issue.priority %></td>
             <td><%= issue.status %></td>
-            <td><%= issue.votes %></td>
+            <td><%= IssuesVote.where(issue_id: issue.id).count %></td>
             <% if issue.assignee != "" %>
                 <td class><a href=/users/<%= issue.assignee %>>
                   <%= issue.assignee %></a></td>

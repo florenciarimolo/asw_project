@@ -1,0 +1,7 @@
+rake db:drop:all
+rake db:migrate
+rails db:environment:set RAILS_ENV=development
+
+bundle install --without production
+
+rails server -p 8080

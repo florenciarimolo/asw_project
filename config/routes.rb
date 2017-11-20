@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :issues
   resources :users
+  resources :issues_votes
+  resources :issues_watches
   get '/auth/twitter/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   root 'pages#index'

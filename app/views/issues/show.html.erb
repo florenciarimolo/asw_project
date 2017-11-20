@@ -50,7 +50,27 @@
       </p>
 
       <p>
-        <strong>Votes:</strong> <%= @issue.votes %>
+        <strong>Votes:</strong> <%= IssuesVote.where(issue_id: @issue.id).count %>
+        <% if IssuesVote.where(issue_id: @issue.id).count == 0 %>
+          <%= link_to "Vote for this issue",
+          new_issues_vote_path(:issue_id => @issue.id, :username => @issue.assignee) %>
+        <% else %>
+          <%= link_to "Remove vote",
+          issues_vote_path(:issue_id => @issue.id, :username => @issue.assignee),
+          method: :delete %>
+        <% end %>
+      </p>
+
+      <p>
+        <strong>Watchers:</strong> <%= IssuesWatch.where(issue_id: @issue.id).count %>
+        <% if IssuesWatch.where(issue_id: @issue.id).count == 0 %>
+          <%= link_to "Watch this issue",
+          new_issues_watch_path(:issue_id => @issue.id, :username => @issue.assignee) %>
+        <% else %>
+          <%= link_to "Stop watching",
+          issues_watch_path(:issue_id => @issue.id, :username => @issue.assignee),
+          method: :delete %>
+        <% end %>
       </p>
 
 

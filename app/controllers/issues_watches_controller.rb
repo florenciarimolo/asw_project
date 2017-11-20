@@ -7,12 +7,16 @@ class IssuesWatchesController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @users = User.find(params[:username])
     @issues_watch.save
+    redirect_to @issue
   end
 
   # DELETE /issues_votes/
   def destroy
     check_auth
-    @issues_vote.destroy
+    @issues_watch = IssuesWatch.where(params[:issue_id], params[:username]).first
+    @issues_watch.destroy
+    @issue = Issue.find(params[:issue_id])
+    redirect_to @issue
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(version: 20171120000802) do
   end
 
   create_table "issues_votes", force: :cascade do |t|
-    t.string "username", null: false
     t.integer "issue_id", null: false
-    t.index ["username", "issue_id"], name: "index_issues_votes_on_username_and_issue_id", unique: true
+    t.string "username", null: false
+    t.index ["issue_id", "username"], name: "index_issues_votes_on_issue_id_and_username", unique: true
   end
 
   create_table "issues_watches", force: :cascade do |t|
-    t.string "username", null: false
     t.integer "issue_id", null: false
-    t.index ["username", "issue_id"], name: "index_issues_watches_on_username_and_issue_id", unique: true
+    t.string "username", null: false
+    t.index ["issue_id", "username"], name: "index_issues_watches_on_issue_id_and_username", unique: true
   end
 
   create_table "users", primary_key: "username", id: :string, force: :cascade do |t|

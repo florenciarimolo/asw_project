@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'issues_watasfgafsdches/new'
-
-  get 'issues_watasfgafsdches/create'
-
-  get 'issues_watasfgafsdches/destroy'
 
   get 'issues_watches/new'
 

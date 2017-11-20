@@ -20,6 +20,12 @@ html, body {
     font-family: sans-serif;
 }
 
+.btn-default
+{
+    background-color: #0052CC !important;
+    color: white;
+}
+
 .navbar {
     border-radius: 0 !important;
 }
@@ -64,10 +70,6 @@ html, body {
     padding: 0 15px !important;
 }
 
-.btn-primary {
-    background-color: #0052CC;
-    border-color: #0052CC;
-}
 
 .submit-button {
     padding-left: 0px;
